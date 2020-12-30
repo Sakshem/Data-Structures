@@ -9,9 +9,20 @@ struct node
     int data;
     struct node *next;
 } *head = NULL;
+int length (struct node *p)
+{
+    int len = 0;
+    do
+    {
+        len++;
+        p = p->next;
+    } while (p != head);
+
+    return len;    
+}
 void insert (int value)
 {
-    struct node *last, *n;
+    struct node *n, *last;
     if (head == NULL)
     {
         head = (struct node *) malloc (sizeof(struct node));
@@ -26,6 +37,43 @@ void insert (int value)
         n->next = last->next;
         last->next = n;
         last = n;
+    }
+}
+void insertAtPos (int pos, int value) //you can use this function for creating a circular linked list
+{
+    if (pos < 0 || pos > length(head))
+        return;
+    struct node *n, *p;
+    if (pos == 0)
+    {
+        n = new node;
+        n->data = value;
+        if (head == NULL)
+        {
+            head = n;
+            head->next = head;
+        }
+        else
+        {
+            p = head;
+            while (p->next != head) 
+                p = p->next;
+            p->next = n;
+            n->next = head;
+            head = n;
+        }
+    }
+    else
+    {
+        p = head;
+        for (int i = 0; i < pos - 1; i++)
+        {
+            p = p->next;
+        }
+        n = new node;
+        n->data = value;
+        n->next = p->next;
+        p->next = n;
     }
 }
 void display (struct node *p)
@@ -62,6 +110,8 @@ int main()
     insert(30);
     insert(40);
     insert(50); 
+    display (head);
+    insertAtPos (3, 100); 
     display (head);
     //Rdisplay (head);
     return 0;
