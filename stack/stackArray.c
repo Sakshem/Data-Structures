@@ -73,11 +73,14 @@ void create(struct stack *st) //creating a stack
 }
 void display(struct stack st) //displaying the elements of the stack
 {
-    for(int i = st.top; i >= 0; i--)
-    {
-        printf("%d ", st.s[i]);
+    if (st.top == -1) { printf("stack is empty!\n"); }
+    else {
+        for(int i = st.top; i >= 0; i--)
+        {   
+            printf("%d ", st.s[i]);
+        }
     }
-    puts("");
+    printf("\n");
 }
 int main()
 {
