@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class myStack
+class myStack //don't name this class as "stack" as it will give you an error since there is already a class stack present.
 {
     private:
     int *s;
