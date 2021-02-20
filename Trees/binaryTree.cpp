@@ -53,7 +53,7 @@ void createTree ()
     struct node *p, *t;
     int x;
     struct Queue q;
-    create (&q, 100);
+    create (&q, 100); //sizeof circular queue is 100.
     cout << "Enter root value" << '\n';
     cin >> x;
     root = (struct node *) malloc (sizeof (struct node));
