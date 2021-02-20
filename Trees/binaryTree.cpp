@@ -15,7 +15,7 @@ struct Queue //queue using array. (circular queue)
     struct node **Q; //pointer of type nodes
 };
 
-void create (struct Queue *q, int size) 
+void create (struct Queue *q, int size) //create function for queue.
 {
     q->size = size;
     q->rear = q->front = 0;
