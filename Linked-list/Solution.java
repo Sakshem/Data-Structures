@@ -82,7 +82,6 @@ public class Solution {
                 case 0 -> {
                     System.out.println("Vacation over!");
                     quit = true;
-                    break;
                 }
                 case 1 -> {
                     if (!goingForward) {
@@ -98,7 +97,6 @@ public class Solution {
                         System.out.println("Reached the end of the list!");
                         goingForward = false;
                     }
-                    break;
                 }
                 case 2 -> {
                     if (goingForward) {
@@ -114,11 +112,9 @@ public class Solution {
                         System.out.println("We are at the start of the list!");
                         goingForward = true;
                     }
-                    break;
                 }
                 case 3 -> {
                     printMenu();
-                    break;
                 }
             }
         }
