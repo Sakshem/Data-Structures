@@ -5,6 +5,9 @@ import java.util.Scanner;
 
 public class Solution {
     public static void main(String[] args) {
+        // Here the cities are visited lexicographically.
+        // addInOrder method compares the new city to the current city on placesToVisit linked list
+        // and then add it accordingly to the list. 
         LinkedList<String> placesToVisit = new LinkedList<String>();
         addInOrder(placesToVisit, "Sydney");
         addInOrder(placesToVisit, "Melbourne");
@@ -14,7 +17,7 @@ public class Solution {
         addInOrder(placesToVisit, "Adelaide");
         addInOrder(placesToVisit, "Darwin");
 
-        printList(placesToVisit);
+        printList(placesToVisit); // It prints the data of each nodes in the linked list.
 
         addInOrder(placesToVisit, "Alice Springs");
         addInOrder(placesToVisit, "Darwin");
@@ -24,7 +27,7 @@ public class Solution {
 
         /* placesToVisit.add(1, "Alice Springs");
         printList(placesToVisit);
-        placesToVisit.remove(4);
+        placesToVisit.remove(4); // This removes the node on position 4.
         printList(placesToVisit);*/
         /*--------------------------------------*/
     }
@@ -47,13 +50,13 @@ public class Solution {
                 return false;
             }
             else if (comparison > 0) {
-                //newCity should appear before this one.
+                // newCity should appear before this one.
                 stringListIterator.previous();
                 stringListIterator.add(newCity);
                 return true;
             }
             else if (comparison < 0) {
-                //move on to the next city.
+                // move on to the next city. (Do nothing since it has already moved to the next node using .next() method on line 46)
             }
         }
         stringListIterator.add(newCity);
@@ -70,7 +73,7 @@ public class Solution {
         }
         else {
             System.out.println("Now visiting " + listIterator.next());
-            printMenu();
+            printMenu(); // calls the method printMenu() to print actions that we can visit next city or move back to previous city.
         }
         while (!quit) {
             int action = scanner.nextInt();
