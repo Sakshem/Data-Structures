@@ -48,9 +48,16 @@ void subtractOne(struct node *p) {
         //advanced condition -> 120 -> 119
         if (p->data > 0) {
             if (t == p) {
-                first = first->next;
-                first->data = 9;
-                return;
+                if (t->data == 1) {
+                	first = first->next;
+                	first->data = 9;
+                	return;
+                }
+              	else {
+                	t->data -= 1;
+					last->data = 9;
+                  	return;
+                }
             }
             p->data -= 1;
             last->data = 9;
