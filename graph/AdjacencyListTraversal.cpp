@@ -21,7 +21,15 @@ void bfs(int node, vector<int64_t> &component) {
     }
   }
 }
-void dfs(int node, vector<int64_t> &component) {}
+void dfs(int node, vector<int64_t> &component) {
+  if (!visited[node]) {
+    visited[node] = true;
+    component.push_back(node);
+    for (auto i : edges[node]) {
+      dfs(i, component);
+    }
+  }
+}
 void test_case() {
   int n, m;
   cin >> n >> m;
@@ -43,6 +51,7 @@ void test_case() {
   for (int i = 0; i < n; i++) {
     vector<int64_t> component;
     if (!visited[i]) {
+      // dfs(i, component);
       bfs(i, component);
       for (auto x : component) {
         ans[x] = component.size();
