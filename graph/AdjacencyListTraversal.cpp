@@ -21,6 +21,7 @@ void bfs(int node, vector<int64_t> &component) {
     }
   }
 }
+void dfs(int node, vector<int64_t> &component) {}
 void test_case() {
   int n, m;
   cin >> n >> m;
